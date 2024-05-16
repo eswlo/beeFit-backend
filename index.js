@@ -2,6 +2,9 @@ const express = require('express')
 const mongoose = require('mongoose');
 const User = require('./models/user.model.js');
 const userRoute = require('./routes/user.route.js');
+const port = 3000;
+// const path = require("path");
+const bcrypt = require('bcrypt');
 const app = express();
 
 
@@ -29,7 +32,7 @@ mongoose.connect("mongodb+srv://wesusenglish:U1Cg6NmGnLMiL5kf@beefitdb.xuupk73.m
     //step1: connect to db first 
     console.log('Connected to mongoDB!');
     //step2: run the server
-    app.listen(3000, () => {
-        console.log("Server is running on port 3000")
+    app.listen(port, () => {
+        console.log(`Server is running on port: ${port}`)
     });
 }).catch(() => console.log('Failed to connect to mongoDB!'));

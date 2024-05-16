@@ -13,13 +13,11 @@ const UserSchema = mongoose.Schema(
         },
         email: {
             type: String,
-            required: [true, "Please enter your email"],
-            unique: [true, "This email address is already in use"]
+            required: [true, "Please enter your email"]        
         },
         userName: {
             type: String,
-            required: [true, "Please enter a user name"],
-            unique: [true, "this user name is already taken"]
+            required: [true, "Please enter a user name"]        
         },
         phoneNumber: {
             type: String,
@@ -36,7 +34,7 @@ const UserSchema = mongoose.Schema(
         }
     },
     {
-        Timestamps: true
+        timestamps: true
     }
 );
 
