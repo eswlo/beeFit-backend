@@ -38,7 +38,7 @@ const getOneUserById = async (req, res) => {
     }
 }
 
-const signUP = async (req, res) => {
+const signUp = async (req, res) => {
     try {
         // Check if the username already exists
         const existingUsername = await User.findOne({ userName: req.body.userName });
@@ -142,7 +142,7 @@ const deleteUserById = async (req, res) => {
 module.exports = {
     getUsers,
     getOneUserById,
-    signUP,
+    signUp,
     loginUser,
     updateUserById,
     deleteUserById
