@@ -31,8 +31,8 @@ const getUsers = async (req, res) => {
 const getOneUserById = async (req, res) => {
     try {
         const { id } = req.params;
-        const userId = await User.findById(id);
-        res.status(200).json(userId);
+        const user = await User.findById(id);
+        res.status(200).json(user);
     } catch (error) {
         res.status(500).json({message: error.message});
     }
@@ -112,13 +112,13 @@ const updateUserById = async (req, res) => {
             updateData.password = await bcrypt.hash(updateData.password, saltRounds);
         }
 
-        const userIdForUpdate = await User.findByIdAndUpdate(id, updateData, { new: true });
+        const updatedUser = await User.findByIdAndUpdate(id, updateData, { new: true });
 
-        if (!userIdForUpdate) {
+        if (!updatedUser) {
             return res.status(404).json({ message: "User not found" });
         }
 
-        res.status(200).json(userIdForUpdate);
+        res.status(200).json(updatedUser);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

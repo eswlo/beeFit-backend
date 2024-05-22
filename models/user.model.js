@@ -1,6 +1,23 @@
 const { Timestamp } = require("mongodb");
 const mongoose = require("mongoose");
 
+
+
+const RewardSchema = mongoose.Schema(
+    {
+        brand: {
+            type: String,
+            required: false
+        },
+        count: {
+            type: Number,
+            required: false,
+            default: 0
+        },
+        // Add any additional fields relevant to the coupon
+    }
+);
+
 const UserSchema = mongoose.Schema(
     {
         firstName: {
@@ -31,7 +48,8 @@ const UserSchema = mongoose.Schema(
             type: Number,
             required: false,
             default: 0
-        }
+        },
+        rewards: [RewardSchema]
     },
     {
         timestamps: true
