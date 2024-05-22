@@ -49,7 +49,10 @@ const UserSchema = mongoose.Schema(
             required: false,
             default: 0
         },
-        rewards: [RewardSchema]
+        rewards: {
+            type: [RewardSchema],
+            default: []
+        }
     },
     {
         timestamps: true
