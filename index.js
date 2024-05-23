@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express')
 const mongoose = require('mongoose');
 const User = require('./models/user.model.js');
@@ -27,7 +29,7 @@ app.use('/api/users', userRoute);
 
 
 
-mongoose.connect("mongodb+srv://wesusenglish:U1Cg6NmGnLMiL5kf@beefitdb.xuupk73.mongodb.net/beefitDB?retryWrites=true&w=majority&appName=beefitDB")
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     //step1: connect to db first 
     console.log('Connected to mongoDB!');
