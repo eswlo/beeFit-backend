@@ -1,0 +1,4 @@
+# put files or sensitive data here so that they won't be pushed to git
+
+node_modules
+.env
