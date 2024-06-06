@@ -2,6 +2,13 @@ const { Timestamp } = require("mongodb");
 const mongoose = require("mongoose");
 
 
+// define the schema stringIntPairSchema for rewards value type
+const stringIntPairSchema = new mongoose.Schema({
+    description: String,
+    count: Number    
+});
+
+
 const UserSchema = mongoose.Schema(
     {
         firstName: {
@@ -35,7 +42,7 @@ const UserSchema = mongoose.Schema(
         },
         rewards: {
             type: Map, // Key type default is string
-            of: Number, // Define the value type of the map
+            of: stringIntPairSchema, // Define the value type of the map
             default: new Map() // Initialize an empty map
         }
     },
